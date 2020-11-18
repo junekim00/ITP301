@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>DPK Beta Nus</title>
+
+	<!--fonts-->
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+	<!--fonts-->
+
+	<style>
+		h1 {text-align: center;
+			font-family: 'Roboto Condensed', sans-serif;
+			font-size: 2.2em}
+
+		body {	margin: 0px;
+				text-align: center;
+				font-family: 'Cabin', sans-serif;}
+
+		#content {background-color: white;}
+
+		footer {margin: 0px;
+				padding: 25px;
+				text-align: center;
+				background-color: #FADEF5;}
+		.imgcontainer {
+			height: 150px;
+			width: 750px;
+			margin: auto;
+		}
+		#content .smlimg {float: left;
+						margin-right: 5px;
+						margin-left: auto;
+						width: auto;
+						height: 150px;
+						opacity: 0.5}
+		
+		#content .smlimg:hover {opacity: 1.0}
+
+		#main {margin: 5px;}
+
+	</style>	
+
+</head>
+
+<body>
+	<div id="header">
+		<h1>Delta Phi Kappa: Beta Nu</h1>
+	</div> <!--header-->
+
+	<div id="content">
+		<div class="imgcontainer">
+			<img class="smlimg" id="izzy" src="pictures/izzy.jpg" alt="Izzy Becer">
+		<!--Jade-->
+			<img class="smlimg" id="jade" src="pictures/jade.jpg" alt="Jade Nguyen">
+		<!--June-->
+			<img class="smlimg" id="june" src="pictures/june.jpg" alt="June Kim">
+		<!--Kristen-->
+			<img class="smlimg" id="kristen" src="pictures/kristen.jpg" alt="Kristen Halim"> 
+		<!--Maddy-->
+			<img class="smlimg" id="maddy" src="pictures/maddy.jpg" alt="Maddy Kim">
+		<!--Sissi-->
+			<img class="smlimg" id="sissi" src="pictures/sissi.jpg" alt="Sissi Lin">
+		</div> <!--end img container-->
+		
+		<div> <!--Main-->
+			<img id ="main" src="pictures/izzy.JPG" alt="Izzy Becer">
+		</div>
+	
+	</div> <!--content-->
+	
+	<footer>
+		<p>June Kim | University of Southern California 2020</p>
+	</footer>
+<script>
+    document.querySelector("#izzy").onclick=function(){
+  			document.querySelector("#main").src = 'pictures/izzy.jpg';
+    		document.querySelector("#main").alt = 'Izzy Becer';} 		
+    document.querySelector("#jade").onclick=function(){
+  			document.querySelector("#main").src = 'pictures/jade.jpg';
+    		document.querySelector("#main").alt = 'Jade Nguyen';}    		
+    document.querySelector("#june").onclick=function(){
+  			document.querySelector("#main").src = 'pictures/june.jpg';
+    		document.querySelector("#main").alt = 'June Kim';}    		
+    document.querySelector("#kristen").onclick=function(){
+  			document.querySelector("#main").src = 'pictures/kristen.jpg';
+     		document.querySelector("#main").alt = 'Kristen';}     		
+    document.querySelector("#maddy").onclick=function(){
+  			document.querySelector("#main").src = 'pictures/maddy.jpg';
+     		document.querySelector("#main").alt = 'Maddy Kim';}
+  	document.querySelector("#sissi").onclick=function(){
+  			document.querySelector("#main").src = 'pictures/sissi.jpg';
+     		document.querySelector("#main").alt = 'Sissi Lin';}
+  </script>
+</body>
+
+</html>
