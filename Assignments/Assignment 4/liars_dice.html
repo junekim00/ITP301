@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Liar's Dice</title>
+
+	<!--fonts-->
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+	<!--end fonts-->
+
+	<style>
+		h1 {
+			margin-left: 5vw;
+			font-family: 'Roboto Condensed', sans-serif;
+			font-size: 2.2em
+		}
+
+		h2 {
+			margin-left: 5vw;
+			font-family: 'Cabin', sans-serif;
+		}
+
+		body {
+			margin: 0;
+			font-family: 'Cabin', sans-serif;
+		}
+
+		body p {
+			margin: 5vw;
+			display: inline;
+		}
+
+		#dice {
+			margin: 5vw;
+		}
+
+		#dice img {
+			width: 150px;
+			padding: 15px;
+		}
+
+		#result {
+			margin-bottom: 5vw;
+		}
+
+		footer {
+			margin: 0px;
+			padding: 25px;
+			text-align: center;
+			background-color: #FADEF5;
+		}
+
+	</style>
+
+</head>
+<body>
+	<div id="header">
+		<h1>Liar's Dice</h1>
+	</div>
+
+	<div id="content">
+		<p>Your Guess: </p>
+		<input type="text" id="guess">
+		<button id="guessbtn"> Submit </button>
+		<br>
+
+		<div id="roll">
+			<h2>Roll Results:</h2>
+			<hr>
+		</div>
+
+		<div id="dice">
+			<img src="dice_images/1.png" alt="dice1">
+			<img src="dice_images/1.png" alt="dice1">
+			<img src="dice_images/1.png" alt="dice1">
+			<img src="dice_images/1.png" alt="dice1">
+			<img src="dice_images/1.png" alt="dice1">
+		</div>
+
+		<div id="result">
+			<p id="resultText"></p>
+		</div>
+	</div>
+
+	<footer>
+		<p>June Kim | University of Southern California 2020</p>
+	</footer>
+
+	<script>
+		// empty array numbers
+		var numbers = []
+		// img array
+		var images = document.querySelectorAll('#dice img');
+		//define function w/ parameters to replace img
+		function changeImgSrc(num) {
+			return "dice_images/" + num + ".png";
+		}
+		//user submits guess
+		document.querySelector("#guessbtn").onclick = function() {
+			var guess = parseInt(document.querySelector('#guess').value);
+			console.log(guess);
+			//reset input
+			document.querySelector('#guess').value = "";
+
+			//loop and populate numbers with 5 random integers
+			for (var i = 0; i < 5; i++) {
+				numbers[i] = Math.floor(Math.random()*6+1);	
+			}
+			console.log(numbers);
+			//loop images and change to match 5 random
+			for (var j = 0; j < 5; j++) {
+				images[j].src = changeImgSrc(numbers[j]);
+				images[j].alt = "dice" + numbers[j];
+			}
+			//print result of guess
+			if (numbers.indexOf(guess)==-1) {
+				document.querySelector('#resultText').innerHTML = "Try again!";
+				document.querySelector('#resultText').style.color = 'red';
+			}
+			else{
+				document.querySelector('#resultText').innerHTML = "You guessed it!";
+				document.querySelector('#resultText').style.color = 'green';
+			}
+		}
+	</script>
+</body>
+</html>

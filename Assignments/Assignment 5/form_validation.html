@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Contact Form</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: 'Cabin', sans-serif;
+		}
+
+		#header {
+			margin-top: 5vh;
+			text-align: center;
+			font-family: 'Roboto Condensed', sans-serif;
+		}
+
+		form {
+			width: 40vw;
+			margin: 0 auto;
+		}
+
+		.row {
+			margin: 1vw 1vh;
+			display: flex;
+		}
+
+		label {
+			width: 10vw;
+			text-align: right;
+			margin-right: 5vw;
+		}
+
+		input {
+			width: 15vw;
+		}
+
+		textarea {
+			padding: 2vh;
+			width: 15vw;
+		}
+
+		.center-row {
+			display: flex;
+			justify-content: center;
+		}
+
+		.error {
+			color: red;
+		}
+
+		footer {
+			width: 100%;
+			display: block;
+			text-align: center;
+			padding-top: 50px;
+			margin: auto;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="header">
+		<h1>Contact Form</h1>
+	</div>
+	<form id="contact-form" action="confirmation.html">
+		<div class="row">
+			<label for="name">Full name: </label>
+			<div class="container">
+				<input id="name" type="text" placeholder="First Last">
+				<p class="error" id="name-error"></p>
+			</div>
+		</div>
+
+		<div class="row">
+			<label for="email">Email: </label>
+			<div class="container">
+				<input id="email" type="text" placeholder="example@mail.com">
+			</div>
+		</div>
+
+		<div class="row">
+			<label for="phone">Phone number: </label>
+			<div class="container">
+				<input id="phone" type="text" placeholder="012-345-6789">
+				<p class="error" id="emailphone-error"></p>
+			</div>
+		</div>
+
+		<div class="row">
+			<label for="message">Message: </label>
+			<div class="container">
+				<textarea id="message" placeholder="Enter message here..."></textarea>
+				<p>
+					<span id="charcount">0</span>
+					/500
+				</p>
+				<p class="error" id="message-error"></p>
+			</div>
+		</div>
+
+		<div class="center-row" id="termscontain">
+			<div>
+				<input id="terms" type="checkbox" placeholder="example@mail.com">
+				<label for="terms">I accept the terms and conditions.</label>
+			</div>
+			<p class="error" id="terms-error"></p>
+		</div>
+
+		<div class="center-row">
+			<button type="submit">Submit</button>
+			<button id="reset" type="reset">Reset</button>
+		</div>
+	</form>
+	
+	<footer>
+		<p>June Kim | University of Southern California 2020</p>
+	</footer>
+
+	<script>
+		//character count on message
+		document.querySelector("#message").oninput = function() {
+			var charCount = document.querySelector("#message").value;
+			document.querySelector("#charcount").innerHTML = charCount.length;
+		}
+
+		//validation upon submission of form
+		document.querySelector("#contact-form").onsubmit = function() {
+			console.log("submit");
+			var valid = true;
+			//make sure spaces in names are not from beginning or end, name not empty, and full name
+			var name = document.querySelector("#name").value.trim();
+			if (name.length == 0) {
+				valid = false;
+				document.querySelector("#name-error").innerHTML = "Name cannot be empty.";
+			} 
+			else if (name.indexOf(" ") == -1) {
+				valid = false;
+				document.querySelector("#name-error").innerHTML = "Please provide full name.";
+			} 
+			else {
+				document.querySelector("#name-error").innerHTML = "";
+			}
+			//email and phone together because only one needed, must not be empty and email needs @
+			var email = document.querySelector("#email").value;
+			var phone = document.querySelector("#phone").value;
+			if (email.length == 0 && phone.length == 0) {
+				valid = false;
+				document.querySelector("#emailphone-error").innerHTML = "You must provide either email or phone.";
+			} 
+			else if (email.indexOf("@") == -1 && email.length > 0) {
+				valid = false;
+				document.querySelector("#emailphone-error").innerHTML = "Please enter a valid email.";
+			} 
+			else {
+				document.querySelector("#emailphone-error").innerHTML = "";
+			}
+
+			//message not empty and less than 500 characters
+			var charCount = document.querySelector("#message").value;
+			if (charCount.length == 0) {
+				valid = false;
+				document.querySelector("#message-error").innerHTML = "Message cannot be empty.";
+			} 
+			else if (wordCount.length > 500) {
+				valid = false;
+				document.querySelector("#message-error").innerHTML = "Message cannot exceed 500 characters.";
+			} 
+			else {
+				document.querySelector("#message-error").innerHTML = "";
+			}
+
+			//terms and conditions must be marked
+			if (document.querySelector("#terms").checked == false) {
+				valid = false;
+				document.querySelector("#terms-error").innerHTML = "You must accept the Terms & Conditions.";
+			} 
+			else {
+				document.querySelector("#terms-error").innerHTML = "";
+			}
+
+
+			document.querySelector("#reset").onclick = function() {
+				document.querySelector("#name-error").innerHTML = "";
+				document.querySelector("#phone-error").innerHTML = "";
+				document.querySelector("#message-error").innerHTML = "";				
+				document.querySelector("#tc-error").innerHTML = "";
+			}
+
+			return validForm;
+		}
+	</script>
+
+</body>
+</html>

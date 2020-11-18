@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>DPK Attendance</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+
+	<style>
+		h1 {
+			font-family: 'Roboto Condensed', sans-serif;
+			font-size: 3em
+		}
+		
+		.clearfloat {clear: both;}
+		
+		body {
+			font-family: 'Cabin', sans-serif;
+			text-align: center;
+		}
+
+		#container {
+			margin: 0;
+			position: relative;
+		}
+
+		#add-container {
+			padding: 3vw 5vh;
+			position: relative;
+		}
+
+		#rushee-list {
+			padding: 3vw 5vh;
+			position: relative;
+		}
+
+		.box {
+			width: 30%;
+			float: left;
+			margin: 1vw 1vh;
+		}
+
+		.box:hover {
+			background-color: #F4F4F4;
+		}
+
+		label {
+			display: block;
+			background-color: #f2b8c6;
+			text-align: left;
+			padding: 2vh;
+			margin-bottom: 2vh;
+			font-family: 'Cabin', sans-serif;
+		}
+
+		label span {
+			color: #B22222;
+		}
+
+		.box:hover label {
+    		background-color: #f79ac0;
+    	}
+
+		input {
+			border-radius: 0.5vw;
+			width: 80%;
+		}
+
+		small {
+			text-align: left;
+			display: block;
+		}
+
+		.error {
+			color: #B22222;
+			visibility: hidden;
+		}
+
+		.hide {visibility: hidden;}
+
+		#buttons {
+			text-align: center;
+		}
+
+		button {
+			padding: 8px;
+			border-radius: 4px;
+			width: 65px;
+			font-family: 'Cabin', sans-serif;
+		}
+
+		#add:hover {
+			background-color: #E77272;
+			color: white;
+		}
+
+		#reset {
+			color: #7e7e7e;
+		}
+
+		#reset:hover {
+			background-color: lightgray;
+			color: white;
+		}
+
+		
+		#delete-container {
+			text-align: left;
+		}
+
+		#delete-all {
+			color: #E15050;
+			width: 100px;
+			margin: 1vh;
+		}
+
+		#delete-all:hover {
+			background-color: #E77272;
+			color: white;
+		}
+
+		.second-box {
+			width: 25%;
+			margin-top: 0;
+		}
+
+		.list-box {
+			height: 200px;
+		}
+
+		.img-contain {
+			height: 250px;
+			overflow: hidden;
+			vertical-align: center;
+		}
+
+		.list-box img {
+			width: 100%;
+			text-align: center;
+		}
+
+		.list-box p {
+			font-size: 40pt;
+		}
+
+		.remove-container {
+			float: left;
+			margin: 1vh;
+		}
+
+		.remove {
+			color: #E15050;
+		}
+
+		.remove:hover {
+			background-color: #E77272;
+			color: white;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="container">
+		<div class="header">
+			<h1>Attendance</h1>
+		</div>
+
+		<div id="add-container">
+			<form id="form">
+				<div class="box">
+					<label for="name"> Name:<span>*</span> </label>
+					<div class="input">
+						<input type="text" placeholder="First Last" id="name" class="field">
+						<small class="error" id="name-error"></small>
+					</div>
+				</div>
+				<div class="box">
+					<label> Attended:<span>*</span> </label>
+					<div class="input">
+						<input type="text" placeholder="Full/late/partial/absent" id="attended" class="field">
+						<small class="error" id="attended-error"></small>
+					</div>
+				</div>
+				<div class="box">
+					<label for="image"> Image url: </label>
+					<div class="input">
+						<input type="text" placeholder="Image URL here..." id="image" class="field">
+						<small class="hide"></small>
+					</div>
+				</div>
+
+				<div class="clearfloat"> </div>
+
+				<div id="buttons">
+					<button type="submit" id="add">add</button>
+					<button type="reset" id="reset">reset</button>
+				</div>
+			</form>
+		</div>
+
+		<div id="rushee-list">
+			<h2>List of Attendees</h2>
+			<div id="delete-all-contain">
+				<button id="delete-all"> Delete All </button>
+			</div>
+
+			<div id="list">
+				<div class="row">
+					<div class="box second-box">
+						<label>Image</label>
+						<div class="input list-box">
+							<div class="img-contain">
+								<img src="https://scontent-lax3-2.xx.fbcdn.net/v/t1.0-9/86277487_862797310830760_5086546235557412864_n.jpg?_nc_cat=106&_nc_sid=85a577&_nc_ohc=gQ-SGB0c448AX8PSgiU&_nc_ht=scontent-lax3-2.xx&oh=b7637771a041fc22c9d31e2bb2be9212&oe=5E8251D9" alt="Amy Jiang">
+							</div>
+						</div>
+					</div>
+					<div class="box second-box">
+						<label>Name</label>
+						<div class="input list-box">
+							<p>Amy Jiang</p>
+						</div>
+					</div>
+					<div class="box second-box">
+						<label>Attended</label>
+						<div class="input list-box">
+							<p>Full</p>
+						</div>
+					</div>
+					<div class="remove-container">
+						<div class="list-box">
+							<button class="remove"> Remove </button>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="box second-box">
+						<label>Image</label>
+						<div class="input list-box">
+							<div class="img-contain">
+								<img src="https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/69737339_1809649742512484_7628059765364490240_o.jpg?_nc_cat=110&_nc_sid=85a577&_nc_ohc=_9Q5WT45v8AAX-QVbgx&_nc_ht=scontent-lax3-1.xx&oh=3a9093291825d3ea71740f909ca020a1&oe=5E8125F4" alt="Kiki Liu">
+							</div>
+						</div>
+					</div>
+					<div class="box second-box">
+						<label>Name</label>
+						<div class="input list-box">
+							<p>Kiki Liu</p>
+						</div>
+					</div>
+					<div class="box second-box">
+						<label>Attended</label>
+						<div class="input list-box">
+							<p>Full</p>
+						</div>
+					</div>
+					<div class="remove-container">
+						<div class="list-box">
+							<button class="remove"> Remove </button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		//individual remove
+		function individualRemove () {
+			var remove = document.querySelectorAll(".remove");
+			for (var i = 0; i < remove.length; i++ ) {
+				remove[i].onclick = function () {
+					document.querySelector("#list").removeChild(this.parentElement.parentElement.parentElement);
+				};
+			}
+		}
+
+		//reset error
+		document.querySelector("#reset").onclick = function () {
+			document.querySelector("#name-error").style.visibility = "hidden";
+			document.querySelector("#attended-error").style.visibility = "hidden";
+		};
+
+		//delete all list
+		document.querySelector("#delete-all").onclick = function () {
+			document.querySelector("#list").innerHTML = " ";
+		};
+
+		//upon submission
+		document.querySelector("#form").onsubmit = function() {
+			var validForm = true;
+			var name = document.querySelector("#name").value.trim();
+			var attended = document.querySelector("#attended").value.trim();
+			var image = document.querySelector("#image").value.trim();
+			console.log(name);			
+
+			//check for whether name + attend have values
+			if (/^$/.test(name)) {
+				document.querySelector("#name-error").innerHTML = "*name is required.";
+				document.querySelector("name-error").style.visibility = "visible";
+				validForm = false;
+			} else {
+				document.querySelector("#name-error").innerHTML = "";
+			}
+
+			if (/^$/.test(attended)) {
+				document.querySelector("#attended-error").innerHTML = "*attended is required.";
+				document.querySelector("#attended-error").style.visibility = "visible";
+				validForm = false;
+			} else {
+				document.querySelector("#attended-error").innerHTML = "";
+			}
+
+			if (validForm) {
+				//create elements for new list row
+				var row = document.createElement("div");
+				var box1 = document.createElement("div");
+				var box2 = document.createElement("div");
+				var box3 = document.createElement("div");
+				var input1 = document.createElement("div");
+				var input2 = document.createElement("div");
+				var input3 = document.createElement("div");
+				var label1 = document.createElement("label");
+				var label2 = document.createElement("label");
+				var label3 = document.createElement("label");
+				var imgContain = document.createElement("div");
+				var img = document.createElement("img");
+				var p1 = document.createElement("p");
+				var p2 = document.createElement("p");
+				var buttonContain = document.createElement("div");
+				var buttonBox = document.createElement("div");
+				var button = document.createElement("button");
+
+				//add default image in case of no entry
+				if (image.length == 0) {
+					image = "https://www.agencegenevievechampagne.com/wp-content/uploads/2019/03/generic-avatar-1.jpg";
+				}
+
+				//add input values
+				img.src = image;
+				img.alt = name;
+				p1.innerHTML = name;
+				p2.innerHTML = attended;
+				button.innerHTML = "Remove";
+				label1.innerHTML = "Image";
+				label2.innerHTML = "Name";
+				label3.innerHTML = "Attended";
+
+				//add class to divs
+				row.classList.add("row");
+				box1.classList.add("box", "second-box");
+				box2.classList.add("box", "second-box");
+				box3.classList.add("box", "second-box");
+				input1.classList.add("input", "list-box");
+				input2.classList.add("input", "list-box");
+				input3.classList.add("input", "list-box");
+				imgContain.classList.add("img-contain");
+				
+				//class to remove button
+				buttonContain.classList.add("remove-container");
+				buttonBox.classList.add("list-box");
+				button.classList.add("remove");
+
+				//append all new elements as a new row in list
+				document.querySelector("#list").appendChild(row);
+				row.appendChild(box1);
+				box1.appendChild(label1);
+				box1.appendChild(input1);
+				input1.appendChild(imgContain);
+				imgContain.appendChild(img);
+
+				row.appendChild(box2);
+				box2.appendChild(label2);
+				box2.appendChild(input2);
+				input2.appendChild(p1);
+
+				row.appendChild(box3);
+				box3.appendChild(label3);
+				box3.appendChild(input3);
+				input3.appendChild(p2);
+
+				row.appendChild(buttonContain);
+				buttonContain.appendChild(buttonBox);
+				buttonBox.appendChild(button);
+
+				individualRemove();
+
+				//reset input fields
+				var input = document.querySelectorAll(".field");
+				for (var i = 0; i < input.length; i++) {
+					input[i].value = "";
+				}
+				
+			}
+
+			return false;
+		};
+
+		individualRemove();
+	</script>
+</body>
+</html>
