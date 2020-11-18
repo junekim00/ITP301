@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+	<title>Jena Gift Cart</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+		
+	<style>
+		h1 {
+			font-family: 'Roboto Condensed', sans-serif;
+			font-size: 3em
+		}
+		h2 {
+			font-family: 'Roboto Condensed', sans-serif;
+			font-size: 1.9em}
+		.clearfloat {clear: both;
+		}
+		body {
+			background-color:white;
+			font-family: 'Cabin', sans-serif;
+			text-align: center;
+			margin: 0;
+		}
+		.content {
+			padding-bottom: 5vh;
+		}
+		.header {
+			text-align: center;
+			width: 100%;
+			padding-top: 2.5vh;
+			padding-bottom: 2.5vh;
+			background-color: #FADEF5;
+		}
+		.wrap {
+			background-color: white;
+		}
+		.container {
+			padding-top: 5vh;
+			padding-bottom: 5vh;
+			width: 90vw;
+			margin-left: auto;
+			margin-right: auto; 
+		}
+		.item {
+			text-align: center;
+			float: left;
+			margin-left: 0.5vw;
+			margin-right: 0.5vw;
+		}
+		.item img{
+			width: 29vw;
+		}
+		.item img:hover {
+			opacity: 0.5;
+		}
+		#cart {
+			float: right;
+			padding-top: 3vh;
+		}
+		#subtotal {
+			font-size: 25px;
+		}
+		#funds {
+			float: left;
+		}
+		#cost {
+			font-size: 25px;
+		}
+		footer {
+			background-color: #FADEF5;
+			height: 5vh;
+			width: 100%;
+			display: block;
+			text-align: center;
+			vertical-align: center;
+			padding-top: 25px;
+			padding-bottom: 25px;
+			position: absolute;
+			bottom: 0;
+		}
+		@media (max-width: 767px) {	
+			body{
+				width: 767px;
+				padding: 15px;
+			}
+			.column{
+				width: 700px;
+			}
+			.header{
+				width: 300px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="content">
+		<div class="header">
+			<h1>My Cart</h1>
+		</div>
+		<div class="wrap">
+			<div class="container">
+				<div class="item" id="wallet">
+					<img src="img/ysl.jpg" alt="YSL Wallet">
+					<p>YSL Wallet</p>
+					$<span>725</span>			
+				</div>
+				<div class="item" id="paddle">
+					<img src="img/paddle.jpg" alt="Paddle">
+					<p>Paddle</p>
+					$ <span>100</span>			
+				</div>
+				<div class="item" id="basket">
+					<img src="img/basket.jpg" alt="Gift Basket">
+					<p>Gift Basket</p>
+					$<span>75</span>			
+				</div>
+				<div id="final">
+					<div id="funds">
+						<span id="remainFund">Remaining funds: $</span>
+						<span id="fundDollar">0</span>
+						<input type="text" id="addFund">
+						<button id="addFundBtn">Add funds</button>
+					</div>
+					<div id="cart">
+						<span id="subtotal">Cart Subtotal $</span>
+						<span id="cost">0</span>
+					</div>
+					<div class="clearfloat"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer>
+		<p>June Kim | University of Southern California 2020</p>
+	</footer>
+	<script>
+		var total = 0;
+		var funds = 0;
+		var addFunds;
+
+		document.querySelector("#addFundBtn").onclick = function(){
+			console.log('Funds were added');
+			addFunds = document.querySelector("#addFund").value;
+			addFunds = parseInt(addFunds);
+			funds = funds + addFunds;
+			document.querySelector("#addFund").value = '';
+			document.querySelector("#fundDollar").innerHTML = funds;
+		}
+
+		document.querySelector("#wallet").onclick = function(){
+			console.log('#wallet was added');
+			if (funds>=725) {
+				total += 725;
+				funds -= 725;
+				document.querySelector("#cost").innerHTML = total;
+				document.querySelector("#fundDollar").innerHTML = funds;
+			}
+			else {
+				alert("Insufficient funds")
+			}
+		}
+		document.querySelector("#paddle").onclick = function(){
+			console.log('#paddle was added');
+			if (funds>=100) {
+				total += 100;
+				funds -= 100;
+				document.querySelector("#cost").innerHTML = total;
+				document.querySelector("#fundDollar").innerHTML = funds;
+			}
+			else {
+				alert("Insufficient funds")
+			}
+		}
+		document.querySelector("#basket").onclick = function(){
+			console.log('#basket was added');
+			if (funds>=75) {
+				total += 75;
+				funds -= 75;
+				document.querySelector("#cost").innerHTML = total;
+				document.querySelector("#fundDollar").innerHTML = funds;
+			}
+			else {
+				alert("Insufficient funds")
+			}
+		}
+	</script>
+</body>
+</html>

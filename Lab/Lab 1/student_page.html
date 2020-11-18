@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+	
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title>June Kim | Student Page</title>
+		
+		<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+		
+		<style>
+			h1 {font-family: 'Roboto Condensed', sans-serif;
+				font-size: 3em}
+			h2 {font-family: 'Roboto Condensed', sans-serif;
+				font-size: 1.9em}
+			.clearfloat {clear: both;}
+			.column {width: 600px;
+					 float: left;}
+			.header {text-align: center;
+					 padding-top: 50px;}
+			.button {font-family: 'Cabin', sans-serif;
+					 text-align: center;}
+			#button {height: 50px;
+					 padding-left: 20px;
+					 padding-right: 20px;
+					 border-radius: 15px;}
+			body {padding: 50px;
+				  background-color:#cbe8f4;
+				  font-family: 'Cabin', sans-serif;
+				  text-align: center;}
+			.title {font-size: 1.2em;}
+			footer {width: 100%;
+					display: block;
+					text-align: center;
+					padding-top: 50px;
+					margin: auto;} 	
+			@media (max-width: 767px) {	
+										body{	width: 767px;
+												padding: 15px;}
+										.column{width: 700px;}
+										.header{width: 300px;}}
+    	</style>
+	</head>
+	
+	<body>
+		<div>
+				<div class="header">
+				<h1>June Kim</h1>
+				<a href="mailto:junek@usc.edu">junek@usc.edu</a>
+				<br>
+				<br>
+				<br>
+				</div>
+
+				<div class="button">
+					<button id="button">Favorite Color</button>
+				</div>
+			
+			<br><hr><br>
+
+			<h2>Completed Work</h2>
+			<div class="column">
+				<p class="title">
+				  Assignments:
+				</p>
+				<p>Assignment 1: JS Photo Gallery</p>
+				<p>Assignment 2: Shopping Cart</p>
+				<p>Assignment 3: Calculator</p>
+				<p>Assignment 4: Liar's Dice</p>
+				<p>Assignment 5: Form Validation</p>
+				<p>Assignment 6: Registration Form Validation</p>
+				<p>Assignment 7: DOM Manipulation</p>
+				<p>Assignment 8: Final Project Proposal</p>
+				<p>Assignment 9: Final Project Home</p>
+				<p>Assignment 10: Final Project Static Pages</p>
+				<p><a href="https://viterbi-web.usc.edu/~junek/itp301/final_project/home.html" target="_blank">Final Project</a></p>
+				<p><a href="https://viterbi-web.usc.edu/~junek/itp301/final_project/Final%20Project%20Summary.pdf" target="_blank">Final Project Summary</a></p>
+			</div>
+
+			<div class="column">
+				<p class="title">
+				  Labs:
+				</p>
+				<p>Lab 1: Student Page</p>
+				<p>Lab 2: Currency Converter</p>
+				<p>Lab 3: Shopping Cart with Funds</p>
+				<p>Lab 4: Updated JS Photo Gallery</p>
+				<p>Lab 5: Password Validation</p>
+				<p>Lab 6: Password Validation w/ RegEx</p>
+				<p>Lab 7: Dynamic Photo Gallery</p>
+				<p>Lab 8: Contact List using Objects</p>
+				<p>Lab 10: Dashboard w/ Storage</p>
+				<p>Lab 11: jQuery Photo Gallery</p>
+				<p>Lab 12: Stopwatch</p>
+			</div>
+		</div>
+
+		<div class="clearfloat"></div>
+
+		<footer>
+			<p>June Kim | University of Southern California 2020</p>
+		</footer>
+	
+	<script>
+		document.querySelector('#button').onclick = function(){
+			console.log("Color change button clicked");
+			document.querySelector('body').style.backgroundColor = '#FADEF5';}
+	</script>
+
+
+	</body>
+
+</html>

@@ -1,0 +1,1 @@
+document.querySelector("#usd").innerHTML=Math.ceil(100*Math.random());
